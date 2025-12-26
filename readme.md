@@ -32,18 +32,9 @@
 
 本项目基于 Python 开发，核心依赖为 `Pillow` (PIL)。
 
-1. 克隆仓库：
-```bash
-git clone https://github.com/yourusername/docx_ai_reconstruct.git
-cd docx_ai_reconstruct
-
-```
-
 
 2. 安装依赖：
 ```bash
-pip install -r requirements.txt
-# 或者直接安装 Pillow
 pip install pillow
 
 ```
@@ -58,7 +49,7 @@ pip install pillow
 
 ### 2. 运行提取脚本
 
-打开 `export.py`，在底部修改输入文件路径（后续版本将支持命令行参数）：
+打开 `deconstruct.py`，在底部修改输入文件路径（后续版本将支持命令行参数）：
 
 ```python
 if __name__ == "__main__":
@@ -72,7 +63,7 @@ if __name__ == "__main__":
 运行脚本：
 
 ```bash
-python export.py
+python deconstruct.py
 
 ```
 
@@ -115,3 +106,4 @@ pipeline_output/
 ## 🤝 贡献
 
 欢迎提交 Issue 和 Pull Request！如果你对“文档即代码” (Document as Code) 有新的想法，请务必分享。
+
