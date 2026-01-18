@@ -50,7 +50,7 @@ python deconstruct.py
 打开 ChatGPT (GPT-4o) 或 Claude (3.5 Sonnet)：
 
 1. 上传 `skeleton.md` 和 `VisualRef.pdf`。
-2. 发送 **[Master Prompt]** (见下文)。
+2. 发送 **[master_prompt.md](./master_prompt.md)**。
 3. AI 会根据你的指令（如“换个更专业的字体”、“图片全部居中”），输出一段 Python 代码。
 
 ### 第三步：缝合 (Stitch)
@@ -69,8 +69,7 @@ python rebuild.py
 ```text
 DocuRebuild/
 ├── deconstruct.py      # [核心] 拆解脚本：提取骨架与视觉参考
-├── prompts/
-│   └── master_prompt.md # [核心] AI 提示词指令
+│── master_prompt.md # [核心] AI 提示词指令
 ├── pipeline_output/    # [自动生成] 存放拆解后的中间产物
 │   ├── skeleton.md     # 文本骨架 (Markdown)
 │   ├── media_source/   # 图片资源库
@@ -82,3 +81,4 @@ DocuRebuild/
 ## 📄 License
 
 MIT License
+
