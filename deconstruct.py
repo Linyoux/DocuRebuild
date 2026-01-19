@@ -207,5 +207,6 @@ def main(input_docx, output_folder):
 
 if __name__ == "__main__":
     # 修改这里为你的文件名
-    input_file = "RS.docx" 
+    input_file = "input.docx" 
+
     main(input_file, "./pipeline_output")
