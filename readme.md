@@ -11,24 +11,30 @@ graph LR
     C -->|输出| D[index.html]
     D -->|Word 打开并另存为| E[✨ 新文档.docx]
 ```
-🚀 快速开始
+
+## 🚀 快速开始
+
 1. 拆骨 (Deconstruct)
-运行 Python 脚本，提取源文档素材：
-```bash
-python deconstruct.py
-```
-核心产出物（位于 pipeline_output/）：
- * media_source/: 无损高清原图。
- * skeleton.md: 带图片锚点的纯文本骨架。
- * VisualRef.pdf: 供 AI 理解画面的图片参考书。
+   运行 Python 脚本，提取源文档素材：
+   ```bash
+   python deconstruct.py
+   ```
+   核心产出物（位于 pipeline_output/）：
+   * media_source/: 无损高清原图。
+   * skeleton.md: 带图片锚点的纯文本骨架。
+   * VisualRef.pdf: 供 AI 理解画面的图片参考书。
+
 2. 重构 (Reconstruct)
- * 将 skeleton.md 和 VisualRef.pdf 投喂给 AI。
- * 发送 master_prompt.md 中的指令。
- * 获取 AI 吐出的 HTML 代码并保存为 index.html（与 media_source 同级）。
+   * 将 skeleton.md 和 VisualRef.pdf 投喂给 AI。
+   * 发送 master_prompt.md 中的指令。
+   * 获取 AI 吐出的 HTML 代码并保存为 index.html（与 media_source 同级）。
+
 3. 缝合 (Render)
-用 Word 直接打开 index.html，选择 另存为 -> Word 文档 (.docx)，完成高精度图文混排的降维重建。
-📂 项目结构
-```
+   用 Word 直接打开 index.html，选择 另存为 -> Word 文档 (.docx)，完成高精度图文混排的降维重建。
+
+## 📂 项目结构
+
+```text
 DocuRebuild/
 ├── deconstruct.py      # 提取脚本
 │── master_prompt.md    # AI 重建指令
