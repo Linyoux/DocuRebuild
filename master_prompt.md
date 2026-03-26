@@ -1,42 +1,26 @@
 # Role
-你是一位精通 Python 自动化办公的高级工程师，擅长使用 `python-docx` 库进行文档排版与重构。
+精通 HTML/CSS 排版的高级工程师，熟知 Word 原生解析 HTML 的特性。
 
 # Task
-我需要你根据我提供的素材，编写一个 Python 脚本，重新构建一份 Word 文档。
+根据提供的 `skeleton.md` (文本骨架) 和 `VisualRef.pdf` (图片参考)，编写单文件 HTML，重建一份排版精美、可供 Word 直接解析的图文报告。
 
-# Inputs
-我为你提供了两个文件：
-1. **skeleton.md (文本骨架)**: 包含了文档的文字内容和图片位置锚点。
-   - 锚点格式为: `> **[插入图片]** ID: <<filename.png>>`
-2. **VisualRef.pdf (视觉参考)**: 包含了图片 ID 对应的实际画面。
+# Requirements
 
-# Requirements (必须严格遵守)
+### 1. 纯净代码
+- **单文件 HTML**：CSS 必须内联在 `<style>` 中。严禁引入外部框架（如 Bootstrap）或 JS。
 
-### 1. 代码逻辑
-- 编写一个完整的 Python 脚本。
-- 使用 `python-docx` 库。
-- **必须**使用 `doc.add_picture()` 函数插入图片。
-- **必须**从本地路径 `media_source/` 读取图片（例如: `doc.add_picture('media_source/image1.png')`）。
+### 2. 精准拼装
+- **标签映射**：将 Markdown 转化为语义化的 HTML（`h1`, `h2`, `p`, `ul` 等）。
+- **图片嵌入**：遇到 `<<filename.png>>` 锚点时，替换为 `<img src="media_source/filename.png">`。**严禁修改文件名（区分大小写）**。
 
-### 2. 内容处理
-- 读取 `skeleton.md` 的内容（你可以将文本硬编码在代码里，或者写代码读取它，为了代码简洁，建议直接将文本内容重构进代码的 `doc.add_paragraph` 中）。
-- **识别 Markdown 语法**：
-  - `#` -> 转换为 Heading 1 样式。
-  - `##` -> 转换为 Heading 2 样式。
-  - 正文 -> 转换为 Normal 样式。
-- **锚点替换**：
-  - 遇到 `<<filename>>` 锚点时，不要保留文字，而是插入对应的图片。
-  - **严禁修改文件名**：必须完全照搬锚点中的文件名（如 `image3.png`），否则代码运行会报错。
+### 3. 视觉布局 (结合 PDF 参考)
+- 使用 `<figure>` 和 `<figcaption>` 包裹图片，并根据画面内容撰写精准的图注。
+- **宽图**（如架构图）：CSS 设为宽幅展示（`max-width: 100%`）。
+- **小图/竖图**（如手机截图）：缩小尺寸并居中（如 `max-width: 300px`）。
 
-### 3. 视觉与排版优化 (利用你的视觉理解能力)
-- 参考 `VisualRef.pdf`：
-  - 如果图片是**宽图**（如架构图、流程图），请在代码中设置 `width=Inches(6)` 以撑满页面。
-  - 如果图片是**小图标**或**手机截图**，请适当缩小尺寸（如 `width=Inches(2)` 或 `Inches(3)`）。
-  - 为每张图片添加一个简单的图注（Caption），内容基于你在 PDF 中看到的画面。
-
-### 4. 样式美化
-- 在代码开头设置全局中文字体为 "微软雅黑" (Microsoft YaHei)，西文为 "Arial"。
-- 适当调整段落间距，使文档看起来专业、透气。
+### 4. 专业排版
+- **字体**：`font-family: Arial, "Microsoft YaHei", sans-serif;`。
+- **间距**：行距 `1.6` 以上，段首缩进 `2em`，保持透气感。标题层次分明。
 
 # Output
-请直接输出 Python 代码块。不要解释代码逻辑，直接给我可执行的代码。
+无需解释，直接输出完整可运行的 HTML 代码块。
